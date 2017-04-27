@@ -1,7 +1,7 @@
 /*
  * @author: Antoine
  * 
- * Adds loading capabilities.
+ * Adds loading capabilities. Test.
  */
 package org.core;
 
