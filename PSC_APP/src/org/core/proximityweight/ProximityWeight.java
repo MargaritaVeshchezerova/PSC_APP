@@ -183,6 +183,8 @@ public class ProximityWeight {
     /**
      * For a given user i (be careful, you need to convert it to an integer
      * first !), return
+     * @param i an user
+     * @return the list of (peer, proximity) ordered by proximity (first = highet proximity)
      */
     public static ArrayList<Pair<Integer, Float>> getOrderedPeers(Integer i) {
         ArrayList<Pair<Integer, Float>> ret = new ArrayList<>();
