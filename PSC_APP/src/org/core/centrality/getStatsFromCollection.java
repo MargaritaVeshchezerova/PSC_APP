@@ -603,11 +603,11 @@ public class getStatsFromCollection {
 	}
 	
 	// gets the standard-deviation, defined by:
-	// sqrt( mean( (x[i] - mean(x[i]))² ) )
+	// sqrt( mean( (x[i] - mean(x[i])) ) )
 	
 	/**
      * Gets the standard-deviation, defined by:
-	 * sqrt( mean( (x[i] - mean(x[i]))² ) )
+	 * sqrt( mean( (x[i] - mean(x[i])) ) )
      *
      * @param arr the array from where to take the statistical results.
      *
@@ -623,7 +623,7 @@ public class getStatsFromCollection {
 	
 	/**
      * Gets the standard-deviation, defined by:
-	 * sqrt( mean( (x[i] - mean(x[i]))² ) )
+	 * sqrt( mean( (x[i] - mean(x[i]))ï¿½ ) )
      *
      * @param arr the array from where to take the statistical results.
      *
@@ -639,7 +639,7 @@ public class getStatsFromCollection {
 	
 	/**
      * Gets the standard-deviation, defined by:
-	 * sqrt( mean( (x[i] - mean(x[i]))² ) )
+	 * sqrt( mean( (x[i] - mean(x[i]))ï¿½ ) )
      *
      * @param arr the array from where to take the statistical results.
      *
@@ -655,7 +655,7 @@ public class getStatsFromCollection {
 	
 	/**
      * Gets the standard-deviation, defined by:
-	 * sqrt( mean( (x[i] - mean(x[i]))² ) )
+	 * sqrt( mean( (x[i] - mean(x[i]))ï¿½ ) )
      *
      * @param arr the array from where to take the statistical results.
      *

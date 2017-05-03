@@ -17,6 +17,8 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import javafx.util.Pair;
@@ -28,11 +30,13 @@ public class ProximityWeight {
 
     private static Integer mail2id(String mail) {
         String[] toks = mail.split("@");
-        if(toks.length < 2)
+        if (toks.length < 2) {
             return -1;
-        else
+        } else {
             return Integer.valueOf(toks[0]);
+        }
     }
+
     /**
      * Computes the proximity weights for a mission.
      *
@@ -72,7 +76,7 @@ public class ProximityWeight {
                 ex.printStackTrace();
                 return false;
             }
-            
+
             System.out.println("Done loading from hard disk !");
             return true;
         } else {
@@ -168,12 +172,40 @@ public class ProximityWeight {
                     output.close();
                 }
             } catch (IOException ex) {
-                ex.printStackTrace();
                 return false;
             }
 
             System.out.println("Done saving to hard disk !");
             return true;
         }
+    }
+
+    /**
+     * For a given user i (be careful, you need to convert it to an integer
+     * first !), return
+     */
+    public static ArrayList<Pair<Integer, Float>> getOrderedPeers(Integer i) {
+        ArrayList<Pair<Integer, Float>> ret = new ArrayList<>();
+
+        for (Pair<Integer, Integer> p : proximityWeight.keySet()) {
+            // If it is related to the user that is being considered
+            if (p.getKey() == i) {
+                ret.add(new Pair<Integer, Float>(p.getValue(), proximityWeight.get(p)));
+            }
+        }
+        Collections.sort(ret, new Comparator<Pair<Integer, Float>>() {
+            @Override
+            public int compare(Pair<Integer, Float> lhs, Pair<Integer, Float> rhs) {
+                if (lhs.getValue() > rhs.getValue()) {
+                    return -1;
+                }
+                if (lhs.getValue() > rhs.getValue()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+        return ret;
     }
 }
